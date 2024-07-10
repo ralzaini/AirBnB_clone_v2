@@ -4,9 +4,6 @@ from fabric.api import local, task, run, put, sudo
 from datetime import datetime
 from fabric.context_managers import env
 import os
-import fnmatch
-import glob
-import time
 
 
 env.hosts = ['34.229.161.215', '54.146.90.232']
@@ -59,29 +56,3 @@ def do_deploy(archive_path):
         return True
     except Exception as e:
         return False
-
-
-@task
-def deploy():
-    """ full deploy of the static files """
-    list_names = None
-    try:
-        list_names = glob.glob('versions/web_static_*.tgz')
-    except Exception as e:
-        pass
-    if list_names is None:
-        archive_path = do_pack()
-    else:
-        archive_path = max(list_names, key=os.path.getctime)
-        time_elapsed = (time.time() - os.path.getctime(archive_path))/60
-        if time_elapsed > 1:
-            archive_path = do_pack()
-    if archive_path is None:
-        return False
-    return do_deploy(archive_path)
-
-
-def find_files(base, pattern):
-    '''Return list of files matching pattern in base folder.'''
-    return [n for n in fnmatch.filter(os.listdir(base), pattern)
-            if os.path.isfile(os.path.join(base, n))]
