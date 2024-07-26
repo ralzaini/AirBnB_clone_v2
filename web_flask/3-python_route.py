@@ -35,8 +35,8 @@ def c_with_params(text):
 @app.route("/python/<text>")
 def python_description(text):
     """Describe Python language"""
-    n_text = text.replace('_', ' ')
-    return f'Python {escape(n_text)}'
+    text_n = text.replace('_', ' ')
+    return "Python {}".format(text_n)
 
 
 if __name__ == '__main__':
