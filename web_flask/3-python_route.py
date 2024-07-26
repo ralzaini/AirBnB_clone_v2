@@ -36,7 +36,7 @@ def c_with_params(text):
 def python_with_params(text):
     """ display path python"""
     text_n = text.replace('_', ' ')
-    return f'Python {escape(n_text)}'
+    return f'Python {escape(text_n)}'
 
 
 if __name__ == '__main__':
