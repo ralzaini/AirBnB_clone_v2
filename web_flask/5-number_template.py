@@ -4,6 +4,7 @@ Hello module is a simple module to say hello
 """
 
 from flask import Flask, render_template
+from markupsafe import escape
 
 
 app = Flask(__name__)
@@ -48,7 +49,7 @@ def number(n):
 @app.route('/number_template/<int:n>')
 def number_temp(n):
     """number template"""
-    return render_template("5-number.html", number=n)
+    return render_template("5-number.html", number=escape(n))
 
 
 if __name__ == '__main__':
