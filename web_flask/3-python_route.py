@@ -33,10 +33,10 @@ def c_with_params(text):
 
 @app.route("/python", defaults={'text': 'is cool'})
 @app.route("/python/<text>")
-def python_with_params(text):
-    """ display path python"""
-    text_n = text.replace('_', ' ')
-    return f'Python {escape(text_n)}'
+def python_description(text):
+    """Describe Python language"""
+    n_text = text.replace('_', ' ')
+    return f'Python {escape(n_text)}'
 
 
 if __name__ == '__main__':
