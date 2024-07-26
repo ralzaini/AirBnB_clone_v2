@@ -46,9 +46,9 @@ def number(n):
     return "{} is a number".format(n)
 
 
-@app.route('/number_template/<int:n>')
-def number_temp(n):
-    """number template"""
+@app.route("/number_template/<int:n>")
+def print_number_template(n):
+    """ Print the number throw HTML file """
     return render_template("5-number.html", number=escape(n))
 
 
