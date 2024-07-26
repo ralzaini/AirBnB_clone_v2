@@ -1,0 +1,19 @@
+# Ignore virtual environment
+myenv/
+
+# Ignore compiled Python files
+*.pyc
+__pycache__/
+
+# Ignore environment variable files
+*.env
+
+# Ignore specific setup scripts and deployment packages
+0-setup_web_static.sh
+1-pack_web_static.py
+2-do_deploy_web_static.py
+3-deploy_web_static.py
+
+# Ignore other potentially sensitive or unnecessary files
+*.log
+
